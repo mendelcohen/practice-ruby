@@ -773,12 +773,10 @@ def highest_product(array)
   highest_product = array[0] * array[1]
   index = 0
   while index < array.length
-    index2 = 0 
+    index2 = index + 1 
     while index2 < array.length 
-      if index != index2
-        if highest_product < array[index] * array[index2]
-          highest_product = array[index] * array[index2]
-        end
+      if highest_product < array[index] * array[index2]
+        highest_product = array[index] * array[index2]
       end
       index2 += 1
     end
@@ -786,4 +784,36 @@ def highest_product(array)
   end
   return highest_product
 end
-p highest_product([33, 10000, -5, -2, -1, -100, -7, -2, 6, -23])
+# p highest_product([-5, -200, -100, -100, -7, -2, 6, -23])
+
+
+
+# Given an array of numbers, return a new array containing just two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
+
+# Specifically use nested loops to solve this exercise even though there are other approaches as well.
+
+# Input: [2, 5, 3, 1, 0, 7, 11]
+# Output: [3, 7]
+
+# Input: [1, 2, 3, 4, 5]
+# Output: false (While 1, 2, 3, and 4 altogether add up to 10, we're seeking just one pair of numbers.)
+
+def sum_ten(array)
+  sum_ten_array = []
+  index = 0
+  while index < array.length
+    index2 = index + 1
+    while index2 < array.length
+      if array[index] + array[index2] === 10
+        sum_ten_array << array[index]
+        sum_ten_array << array[index2]
+      end
+      index2 += 1
+    end
+    index += 1
+  end
+  return sum_ten_array if sum_ten_array.length > 1
+  return false if sum_ten_array.length < 2
+end
+# p sum_ten([2, 5, 3, 1, 0, 7, 11])
+# p sum_ten([1, 2, 3, 4, 5])
