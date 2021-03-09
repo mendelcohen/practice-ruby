@@ -817,3 +817,39 @@ def sum_ten(array)
 end
 # p sum_ten([2, 5, 3, 1, 0, 7, 11])
 # p sum_ten([1, 2, 3, 4, 5])
+
+
+
+# Given two sorted arrays, merge the second array into the first array while ensuring that the first array remains sorted. Do not use any built-in sort methods.
+
+# Input :
+# A : [1, 5, 8]
+# B : [6, 9]
+
+# Modified A : [1 5 6 8 9]
+
+def merge_arrays(array1, array2)
+  index1 = 0
+  index2 = 0
+  while index1 < array1.length
+    while index2 < array2.length
+      if array2[index2] > array1[-1]
+        array1 << array2[index2]
+        break
+      elsif array2[index2] < array1[index1]
+        array1.insert(index1, array2[index2])
+        break
+      end
+      index1 += 1
+    end
+    index2 += 1
+    index1 += 1
+  end
+  return array1
+end
+p merge_arrays([1, 5, 8], [6, 9])
+
+
+a = [1, 2, 5, 6]
+a.insert(2, "hello", 4, a[3])
+p a
