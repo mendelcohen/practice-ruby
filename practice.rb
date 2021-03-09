@@ -761,4 +761,29 @@ def array_of_combinations(array)
   end
   return new_array
 end
-p array_of_combinations(["a", "b", "c", "d"])
+# p array_of_combinations(["a", "b", "c", "d"])
+
+
+
+# Find the largest product of any two numbers within a given array.
+
+# Input: [5, -2, 1, -9, -7, 2, 6]
+# Output: 63 (-9 * -7)
+def highest_product(array)
+  highest_product = array[0] * array[1]
+  index = 0
+  while index < array.length
+    index2 = 0 
+    while index2 < array.length 
+      if index != index2
+        if highest_product < array[index] * array[index2]
+          highest_product = array[index] * array[index2]
+        end
+      end
+      index2 += 1
+    end
+    index += 1
+  end
+  return highest_product
+end
+p highest_product([33, 10000, -5, -2, -1, -100, -7, -2, 6, -23])
