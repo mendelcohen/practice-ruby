@@ -1,14 +1,14 @@
 # # Write a method that prints out the numbers 1 to 1000 that are divisible by 3.
 # def print_numbers_divisible_by_three
 #   index = 1
-#   while index <= 1000
-#     if index % 3 == 0
-#       puts index
-#     end
-#     index += 1
-#   end
-# end
-# print_numbers_divisible_by_three
+#      index <= 1000
+#       if index % 3 == 0
+#         puts index
+#     e  nd
+#       index += 1
+#   end  
+# e  nd
+#   print_numbers_divisible_by_thr  e  e
 
 
 # # Write a method that accepts an array of strings and prints out every other string.
@@ -829,27 +829,68 @@ end
 # Modified A : [1 5 6 8 9]
 
 def merge_arrays(array1, array2)
-  index1 = 0
-  index2 = 0
-  while index1 < array1.length
-    while index2 < array2.length
-      if array2[index2] > array1[-1]
-        array1 << array2[index2]
+  i = 0
+  j = 0
+  while i < array1.length
+    while j < array2.length
+      if array2[j] > array1[-1]
+        array1 << array2[j]
         break
-      elsif array2[index2] < array1[index1]
-        array1.insert(index1, array2[index2])
+      elsif array2[j] < array1[i]
+        array1.insert(i, array2[j])
         break
       end
-      index1 += 1
+      i += 1
     end
-    index2 += 1
-    index1 += 1
+    j += 1
+    i += 1
   end
   return array1
 end
-p merge_arrays([1, 5, 8], [6, 9])
+# p merge_arrays([1, 5, 8], [6, 9])
 
 
-a = [1, 2, 5, 6]
-a.insert(2, "hello", 4, a[3])
-p a
+# Given an array of numbers, return true if the array is a "100 Coolio Array", or false if it is not.
+
+# A "100 Coolio Array" meets the following criteria:
+
+# Its first and last numbers add up to 100,
+# Its second and second-to-last numbers add up to 100,
+# Its third and third-to-last numbers add up to 100,
+# and so on and so forth.
+
+# Here are examples of 100 Coolio Arrays:
+
+# [1, 2, 3, 97, 98, 99]
+# [90, 20, 70, 100, 30, 80, 10]
+
+def coolio_array(array)
+  i = 0
+  j = -1
+  if array.length % 2 === 0
+    while i < array.length / 2 && (j).abs <= array.length / 2
+      if array[i] + array[j] != 100 
+        return false
+        break
+      else
+        i += 1
+        j -= 1
+      end
+    end
+    return true
+  else
+    while i < array.length / 2 && (j).abs <= array.length / 2
+      if array[i] + array[j] != 100 || array[array.length / 2] != 100
+        return false
+        break
+      else
+        i += 1
+        j -= 1
+      end
+    end
+    return true
+  end
+end
+
+p coolio_array([0, 2, 3, 97, 98, 100])
+p coolio_array([90, 20, 70, 100, 30, 80, 10])
