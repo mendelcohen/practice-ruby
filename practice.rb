@@ -935,7 +935,35 @@ def common_prefix(array)
   end
   return longest_common_prefix
 end
-p common_prefix(["flower","flow","flight"])
-p common_prefix(["dog","racecar","car"])
-p common_prefix(["dag","dacecar","da"])
-p common_prefix(["dag","dacecar","da", "dn", "dash", "dare"])
+# p common_prefix(["flower","flow","flight"])
+# p common_prefix(["dog","racecar","car"])
+# p common_prefix(["dag","dacecar","da"])
+# p common_prefix(["dag","dacecar","da", "dn", "dash", "dare"])
+
+
+
+# Given a string, find the most commonly occurring letter.
+
+# Input: “peter piper picked a peck of pickled peppers”
+# Output: “p”
+
+def most_common_letter(string)
+  highest_count = 0
+  highest_counted_letter = ""
+  letter_count = {}
+  index = 0
+  while index < string.length
+    if letter_count[string[index]]
+      letter_count[string[index]] += 1
+      if letter_count[string[index]] > highest_count
+        highest_count = letter_count[string[index]]
+        highest_counted_letter = string[index]
+      end
+    else
+      letter_count[string[index]] = 1
+    end
+    index += 1
+  end
+  return highest_counted_letter
+end
+p most_common_letter("peter piper picked a peck of pickled peppers")
