@@ -892,5 +892,51 @@ def coolio_array(array)
   end
 end
 
-p coolio_array([0, 2, 3, 97, 98, 100])
-p coolio_array([90, 20, 70, 100, 30, 80, 10])
+# p coolio_array([0, 2, 3, 97, 98, 100])
+# p coolio_array([90, 20, 70, 100, 30, 80, 10])
+
+
+
+# Write a function to find the longest common prefix string amongst an array of strings.
+
+# If there is no common prefix, return an empty string "".
+
+# Example 1:
+
+# Input: ["flower","flow","flight"]
+# Output: "fl"
+# Example 2:
+
+# Input: ["dog","racecar","car"]
+# Output: ""
+# Explanation: There is no common prefix among the input strings.
+# Note:
+
+# All given inputs are in lowercase letters a-z.
+
+def common_prefix(array)
+  longest_common_prefix = ""
+
+  
+  j = 0
+  while j < array.length
+    i = 0
+    h = array[i][j]
+    while i < array.length
+      if array[i][j] === h 
+        i += 1
+      else
+        break
+      end 
+      if i === array.length - 1 && array[i][j] === h 
+        longest_common_prefix += h
+      end
+    end
+    j += 1 
+  end
+  return longest_common_prefix
+end
+p common_prefix(["flower","flow","flight"])
+p common_prefix(["dog","racecar","car"])
+p common_prefix(["dag","dacecar","da"])
+
