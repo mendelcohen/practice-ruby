@@ -1190,4 +1190,22 @@ def data_transformation(array, integer)
   end
   return hash
 end
-p data_transformation(["a", "e", "i", "o", "u"], 1)
+# p data_transformation(["a", "e", "i", "o", "u"], 1)
+# p data_transformation(["a", "e", "i", "o", "u", "t"], 34)
+
+
+
+# Given a hash, return a flat array containing all the hash’s keys and values.
+
+# Input: {“a” => 1, “b” => 2, “c” => 3, “d” => 4}
+# Output: [“a”, 1, “b”, 2, “c”, 3, “d”, 4]
+
+def hash_to_array(hash)
+  array = []
+  hash.each do |k, v|
+    array.push(k)
+    array.push(v)
+  end
+  return array
+end
+p hash_to_array({"a" => 1, "b" => 2, "c" => 3, "d" => 4})
