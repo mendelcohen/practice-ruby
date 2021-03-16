@@ -1146,16 +1146,20 @@ p id_name_exchange([
 
 def anagram(str1, str2)
   letters = ""
-  str1.each_char do |letter|
-    str2.each_char do |letter2|
-      if letter2 === letter
-        letters += letter
+  if str1.length === str2.length
+    str1.each_char do |letter|
+      str2.each_char do |letter2|
+        if letter2 === letter
+          letters += letter
+        end
       end
     end
+    letters === str1
+  else
+    return false
   end
-  letters === str1
 end
 p anagram("silent", "listen")
 p anagram("frog", "bear")
 p anagram("cinema", "iceman")
-p anagram("dog", "fog")
+p anagram("do", "fog")
