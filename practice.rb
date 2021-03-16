@@ -1125,12 +1125,12 @@ def id_name_exchange(array, hash)
   # id_for_name = array.map{|post| post[:submitted_by] = hash[post[:submitted_by]]}
   return id_for_name
 end
-p id_name_exchange([
-  {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
-  {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
-  {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
-  {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
-  ], {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."})
+# p id_name_exchange([
+#   {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+#   {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+#   {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+#   {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+#   ], {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."})
 
 
 
@@ -1159,7 +1159,35 @@ def anagram(str1, str2)
     return false
   end
 end
-p anagram("silent", "listen")
-p anagram("frog", "bear")
-p anagram("cinema", "iceman")
-p anagram("do", "fog")
+# p anagram("silent", "listen")
+# p anagram("frog", "bear")
+# p anagram("cinema", "iceman")
+# p anagram("do", "fog")
+
+
+
+# You are given two parameters, an array and a number. Return a hash whose keys are each of the values from the array parameter, and whose values are the number parameter.
+
+# Input:
+
+# First argument: ["a", "e", "i", "o", "u"]
+# Second argument: 1
+
+# Output:
+
+# {
+# 'a' => 1,
+# 'e' => 1,
+# 'i' => 1,
+# 'o' => 1,
+# 'u' => 1
+# }
+
+def data_transformation(array, integer)
+  hash = {}
+  array.each do |index|
+    hash[index] = integer
+  end
+  return hash
+end
+p data_transformation(["a", "e", "i", "o", "u"], 1)
