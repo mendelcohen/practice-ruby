@@ -1208,4 +1208,20 @@ def hash_to_array(hash)
   end
   return array
 end
-p hash_to_array({"a" => 1, "b" => 2, "c" => 3, "d" => 4})
+# p hash_to_array({"a" => 1, "b" => 2, "c" => 3, "d" => 4})
+
+
+
+# Given a hash, create a new hash that has the keys and values switched.
+
+# Input: {"a" => 1, "b" => 2, "c" => 3}
+# Output: {1 => "a", 2 => "b", 3 => "c"}
+
+def switch_key_value(hash)
+  flipped_hash = {}
+  hash.each do |k, v|
+    flipped_hash[v] = k
+  end
+  return flipped_hash
+end
+p switch_key_value({"a" => 1, "b" => 2, "c" => 3})
