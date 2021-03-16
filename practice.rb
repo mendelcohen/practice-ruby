@@ -1132,3 +1132,30 @@ p id_name_exchange([
   {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
   ], {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."})
 
+
+
+# Given two strings, return true if they are anagrams of each other, and false if they are not. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+
+# Do not use any built-in sort methods.
+
+# Input: “silent”, “listen”
+# Output: true
+  
+#   Input: “frog”, “bear”
+#   Output: false
+
+def anagram(str1, str2)
+  letters = ""
+  str1.each_char do |letter|
+    str2.each_char do |letter2|
+      if letter2 === letter
+        letters += letter
+      end
+    end
+  end
+  letters === str1
+end
+p anagram("silent", "listen")
+p anagram("frog", "bear")
+p anagram("cinema", "iceman")
+p anagram("dog", "fog")
