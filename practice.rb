@@ -1372,7 +1372,6 @@ def name_for_id(array1, array2)
         array1[index][:submitted_by] = array2[index2][:name]
         array1[index][:likes] = array1[index][:likes]
         new_array << array1[index]
-        # post[:submitted_by] = user[:name]
       end
       index2 += 1
     end
@@ -1380,14 +1379,69 @@ def name_for_id(array1, array2)
   end
   return new_array
 end
-p name_for_id([
-  {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
-  {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
-  {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
-  {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
-  ], [
-  {user_id: 403, name: "Aunty Em"},
-  {user_id: 231, name: "Joelle P."},
-  {user_id: 989, name: "Lyndon Johnson"},
-  {user_id: 111, name: "Patti Q."},
+# p name_for_id([
+#   {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+#   {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+#   {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+#   {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+#   ], [
+#   {user_id: 403, name: "Aunty Em"},
+#   {user_id: 231, name: "Joelle P."},
+#   {user_id: 989, name: "Lyndon Johnson"},
+#   {user_id: 111, name: "Patti Q."},
+#   ])
+
+
+
+# Given a list of books provided in this format:
+
+# [
+# {title: "The Lord of the Rings", author: "J. R. R. Tolkien", year: 1954 },
+# {title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+# {title: "1984", author: "George Orwell", year: 1949 },
+# {title: "Go Set a Watchman", author: "Harper Lee", year: 2015 },
+# {title: "The Hobbit", author: "J. R. R. Tolkien", year: 1937 },
+# {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
+# {title: "The Two Towers", author: "J. R. R. Tolkien", year: 1954 }
+# ]
+
+# return the data in this new author-centric format:
+
+# { "J. R. R. Tolkien" => [
+# {title: "The Lord of the Rings", year: 1954 },
+# {title: "The Hobbit", year: 1937 },
+# {title: "The Two Towers", year: 1954 }
+# ],
+# "Harper Lee" => [
+# {title: "To Kill a Mockingbird", year: 1960 },
+# {title: "Go Set a Watchman", year: 2015 }
+# ],
+# "George Orwell" => [
+# {title: "1984", year: 1949 }
+# ],
+# "F. Scott Fitzgerald" => [
+# {title: "The Great Gatsby", year: 1925 }
+# ]
+# }
+
+def order_by_author(array)
+  author_hash = {}
+  array.each do |book|
+    if author_hash[book[:author]]
+      author_hash[book[:author]] << {title: book[:title], year: book[:year]}
+    else 
+      author_hash[book[:author]] = [{title: book[:title], year: book[:year]}]
+    end
+  end
+  return author_hash
+end
+p order_by_author([
+  {title: "The Lord of the Rings", author: "J. R. R. Tolkien", year: 1954 },
+  {title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+  {title: "1984", author: "George Orwell", year: 1949 },
+  {title: "Go Set a Watchman", author: "Harper Lee", year: 2015 },
+  {title: "The Hobbit", author: "J. R. R. Tolkien", year: 1937 },
+  {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
+  {title: "The Two Towers", author: "J. R. R. Tolkien", year: 1954 }
   ])
+
