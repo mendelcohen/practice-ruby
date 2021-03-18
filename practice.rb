@@ -1487,15 +1487,36 @@ def convert_array(array1, array2)
   end
   return new_array
 end
-p convert_array([
-  {title: 'How to Make Wood', author_id: 4, views: 6},
-  {title: 'How to Seem Perfect', author_id: 4, views: 111},
-  {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
-  {title: 'Why Pigs Stink', author_id: 1, views: 12}
-  ], [
-    {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
-    {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
-    {id: 3, first_name: 'Saron', last_name: 'Kim'},
-    {id: 4, first_name: 'Teena', last_name: 'Burgess'},
-    ])
+# p convert_array([
+#   {title: 'How to Make Wood', author_id: 4, views: 6},
+#   {title: 'How to Seem Perfect', author_id: 4, views: 111},
+#   {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
+#   {title: 'Why Pigs Stink', author_id: 1, views: 12}
+#   ], [
+#     {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
+#     {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
+#     {id: 3, first_name: 'Saron', last_name: 'Kim'},
+#     {id: 4, first_name: 'Teena', last_name: 'Burgess'},
+#     ])
 
+
+
+# Given two arrays, return a new array that contains the intersection of the two arrays. The intersection means the values that are contained in both of the arrays. Do not use the "&", or any built-in intersection methods.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: [1, 2, 3, 4, 5], [1, 3, 5, 7, 9]
+# Output: [1, 3, 5]
+
+def array_intersection(array1, array2)
+  intersecting_array = []
+  array1.each do |int1|
+    array2.each do |int2|
+      if int1 === int2
+        intersecting_array << int2
+      end
+    end
+  end
+  return intersecting_array
+end
+p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
