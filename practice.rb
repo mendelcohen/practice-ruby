@@ -1519,12 +1519,12 @@ def array_intersection(array1, array2)
   end
   return intersecting_array
 end
-p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
+# p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
 
 def array_intersection(array1, array2)
   return array1 & array2
 end
-p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
+# p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
 
 def array_intersection(array1, array2)
   hash = {}
@@ -1539,4 +1539,33 @@ def array_intersection(array1, array2)
   end
   return intersecting_array
 end
-p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
+# p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
+
+
+
+# Given two arrays, determine whether one is a subset of the other. It is considered a subset if all the values in one array are contained within the other.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: [1, 2, 3, 4, 5, 6], [6, 3, 2]
+# Output: true
+
+# Input: [1, 2, 3, 4, 5, 6], [6, 3, 7]
+# Output: false
+
+def array_subset(array1, array2)
+  hash = {}
+  array1.each do |int|
+    hash[int] = "hello"
+  end
+  array2.each do |int|
+    if !hash.include?(int)
+      p int
+      return false
+      break
+    end
+  end
+  return true
+end
+p array_subset([1, 2, 3, 4, 5, 6], [6, 3, 2])
+p array_subset([1, 2, 3, 4, 5, 6], [7, 8, 6, 3])
