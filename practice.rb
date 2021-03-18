@@ -1520,3 +1520,23 @@ def array_intersection(array1, array2)
   return intersecting_array
 end
 p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
+
+def array_intersection(array1, array2)
+  return array1 & array2
+end
+p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
+
+def array_intersection(array1, array2)
+  hash = {}
+  intersecting_array = []
+  array1.each do |int1|
+    hash[int1] = true
+  end
+  array2.each do |int2|
+    if hash.include?(int2)
+      intersecting_array << int2
+    end
+  end
+  return intersecting_array
+end
+p array_intersection([1, 2, 3, 4, 5, 7, 0], [1, 3, 5, 7, 9, 0])
