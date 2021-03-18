@@ -1560,12 +1560,55 @@ def array_subset(array1, array2)
   end
   array2.each do |int|
     if !hash.include?(int)
-      p int
       return false
       break
     end
   end
   return true
 end
-p array_subset([1, 2, 3, 4, 5, 6], [6, 3, 2])
-p array_subset([1, 2, 3, 4, 5, 6], [7, 8, 6, 3])
+# p array_subset([1, 2, 3, 4, 5, 6], [6, 3, 2])
+# p array_subset([1, 2, 3, 4, 5, 6], [7, 8, 6, 3])
+
+
+
+# A given array has one pair of duplicate values. Return the first duplicate value.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: [5, 2, 9, 7, 2, 6]
+# Output: 2
+
+def duplicate_values(array)
+  duplicate = 0
+  hash = {}
+  array.each do |int|
+    hash[int] = "number"
+  end
+  array.each do |int|
+    if hash.include?(int)
+      hash.delete(int)
+    else
+      duplicate = int
+    end
+  end
+  return duplicate
+end
+p duplicate_values([5, 7, 9, 7, 2, 6])
+
+
+def duplicate_values(array)
+  duplicate = []
+  hash = {}
+  array.each do |int|
+    hash[int] = "number"
+  end
+  array.each do |int|
+    if hash.include?(int)
+      hash.delete(int)
+    else
+      duplicate << int
+    end
+  end
+  return duplicate
+end
+p duplicate_values([5, 7, 9, 7, 2, 6, 6])
