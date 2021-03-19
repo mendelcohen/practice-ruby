@@ -1593,7 +1593,7 @@ def duplicate_values(array)
   end
   return duplicate
 end
-p duplicate_values([5, 7, 9, 7, 2, 6])
+# p duplicate_values([5, 7, 9, 7, 2, 6])
 
 
 def duplicate_values(array)
@@ -1611,4 +1611,28 @@ def duplicate_values(array)
   end
   return duplicate
 end
-p duplicate_values([5, 7, 9, 7, 2, 6, 6])
+# p duplicate_values([5, 7, 9, 7, 2, 6, 6])
+
+
+
+# A given string contains all the letters from the alphabet except for one. Return the missing letter.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: “The quick brown box jumps over a lazy dog”
+# Output: “f”
+
+def find_missing_letter(string)
+  missing_letter = ""
+  hash = {"a" => 1, "a" => 1, "b" => 1, "c" => 1, "d" => 1, "e" => 1, "f" => 1, "g" => 1, "h" => 1, "i" => 1, "j" => 1, "k" => 1, "l" => 1, "m" => 1, "n" => 1, "o" => 1, "p" => 1, "q" => 1, "r" => 1, "s" => 1, "t" => 1, "u" => 1, "v" => 1, "w" => 1, "x" => 1, "y" => 1, "z" => 1}
+  string.downcase.each_char do |letter|
+    if hash.include?(letter)
+      hash.delete(letter)
+    end
+  end
+  hash.each do |k, _v|
+    missing_letter = k
+  end
+  return missing_letter
+end
+p find_missing_letter("The quick brown box jumps over a lazy dog")
