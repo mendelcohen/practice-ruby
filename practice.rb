@@ -918,7 +918,7 @@ def common_prefix(array)
   longest_common_prefix = ""
   pre_index = 0
   word_index = 0
-  while pre_index < array.length - 1
+  while pre_index < array[word_index].length
     letter = array[word_index][pre_index]
     while word_index < array.length
       if array[word_index][pre_index] === letter 
@@ -935,10 +935,10 @@ def common_prefix(array)
   end
   return longest_common_prefix
 end
-# p common_prefix(["flower","flow","flight"])
-# p common_prefix(["dog","racecar","car"])
-# p common_prefix(["dag","dacecar","da"])
-# p common_prefix(["dag","dacecar","da", "dn", "dash", "dare"])
+p common_prefix(["flower","flow","flight"])
+p common_prefix(["dog","racecar","car"])
+p common_prefix(["dag","dacecar","da"])
+p common_prefix(["dag","dacecar","da", "dn", "dash", "dare"])
 
 
 
