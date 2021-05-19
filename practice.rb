@@ -939,7 +939,7 @@ p common_prefix(["flower","flow","flight"])
 p common_prefix(["dog","racecar","car"])
 p common_prefix(["dag","dacecar","da"])
 p common_prefix(["dag","dacecar","da", "dn", "dash", "dare"])
-
+p common_prefix(["flower","flowers","flowery"])
 
 
 # Given a string, find the most commonly occurring letter.
@@ -1696,7 +1696,7 @@ def sum_ten(array)
   array.each do |int|
     hash[int] = "yeah"
   end
-  array.each do |k, _v|
+  array.each do |k|
     hash.delete(k)
     if hash.include?(10 - k)
       sub_array << k
@@ -1706,8 +1706,8 @@ def sum_ten(array)
   end
   return false
 end
-# p sum_ten([2, 5, 3, 1, 0, 7, 11])
-# p sum_ten([1, 2, 3, 4, 5])
+p sum_ten([2, 5, 3, 1, 0, 7, 11])
+p sum_ten([1, 2, 3, 4, 5])
 
 
 
